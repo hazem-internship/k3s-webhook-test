@@ -7,6 +7,7 @@ data:
       LinkURL: null
     in_repo_config:
       enabled:
+        hazem-internship/go-webhook: true
         hazem-internship/k3s-webhook-test: true
     plank: {}
     pod_namespace: jx
@@ -19,6 +20,7 @@ data:
         required-if-present-contexts: null
         skip-unknown-contexts: false
       merge_method:
+        hazem-internship/go-webhook: merge
         hazem-internship/k3s-webhook-test: merge
       queries:
       - labels:
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - hazem-internship/k3s-webhook-test
+        - hazem-internship/go-webhook
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - hazem-internship/k3s-webhook-test
+        - hazem-internship/go-webhook
       target_url: http://lighthouse.jx.10.0.0.25.nip.io/merge/status
 kind: ConfigMap
 metadata:
