@@ -34,9 +34,11 @@ jxRequirements:
     registry: ghcr.io
   environments:
   - key: dev
+    owner: hazem-internship
+    repository: k3s-webhook-test
   - key: staging
   ingress:
-    domain: change.me
+    domain: 10.0.0.25.nip.io
     ignoreLoadBalancer: true
     kind: ingress
     namespaceSubDomain: .secret-infra.
@@ -44,6 +46,8 @@ jxRequirements:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: hazemTa
   repository: bucketrepo
   secretStorage: vault
   vault: {}
