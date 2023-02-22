@@ -6,6 +6,10 @@ data:
       repos:
       - hazem-internship/k3s-webhook-test
       require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
+      - hazem-internship/go-webhook
+      require_self_approval: true
     cat: {}
     cherry_pick_unapproved: {}
     config_updater:
@@ -16,6 +20,11 @@ data:
         env/prow/plugins.yaml:
           name: plugins
     external_plugins:
+      hazem-internship/go-webhook:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
       hazem-internship/k3s-webhook-test:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
@@ -26,6 +35,20 @@ data:
       additional_labels: null
     owners: {}
     plugins:
+      hazem-internship/go-webhook:
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
       hazem-internship/k3s-webhook-test:
       - config-updater
       - approve
@@ -53,6 +76,11 @@ data:
     - repos:
       - hazem-internship/k3s-webhook-test
       trusted_org: hazem-internship
+    - repos:
+      - hazem-internship/go-webhook
+      trusted_org: hazem-internship
+    welcome:
+    - message_template: Welcome
 kind: ConfigMap
 metadata:
   creationTimestamp: null
